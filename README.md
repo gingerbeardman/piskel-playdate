@@ -44,8 +44,9 @@ As well as some **icons** from the [Noun Project](https://thenounproject.com/) :
 
 Piskel supports the following browsers:
 * **Chrome** (latest)
-* **Firefox** (latest)
 * **Edge** (latest)
+* **Firefox** (latest)
+* **Opera** (latest)
 * **Safari** (latest)
 * **Internet Explorer** 11
 
