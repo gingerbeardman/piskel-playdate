@@ -4,7 +4,9 @@ Piskel
 Piskel is an easy-to-use sprite editor. It can be used to create game sprites, animations, pixel-art...
 It is the editor used in **[piskelapp.com](https://www.piskelapp.com)**.
 
-This fork can be used to build desktop apps of v15.0
+This fork:
+- can be used to build desktop apps of v15.0 on latest OS.
+- has Playdate-specific features
 
 ## Building desktop apps
 
