@@ -1,5 +1,5 @@
-Piskel
-======
+Piskel for Playdate
+===================
 
 Switch to branch https://github.com/gingerbeardman/piskel/tree/dev-1047
 
