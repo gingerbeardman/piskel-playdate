@@ -1,10 +1,20 @@
 Piskel
 ======
 
-[![Travis Status](https://api.travis-ci.org/piskelapp/piskel.png?branch=master)](https://travis-ci.org/piskelapp/piskel) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](https://gruntjs.com/)
-
 Piskel is an easy-to-use sprite editor. It can be used to create game sprites, animations, pixel-art...
 It is the editor used in **[piskelapp.com](https://www.piskelapp.com)**.
+
+This fork can be used to build desktop apps of v15.0
+
+## Building desktop apps
+
+1. clone this repo
+2. switch to branch https://github.com/gingerbeardman/piskel/tree/dev-1047
+3. `npm install grunt-cli -g`
+4. `npm install`
+5. `grunt desktop`
+
+----
 
 ## About Piskel
 
