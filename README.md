@@ -7,6 +7,9 @@ It is the editor used in **[piskelapp.com](https://www.piskelapp.com)**.
 This fork:
 - can be used to build desktop apps of v15.0 on latest OS.
 - has Playdate-specific features
+  - get frame size from imagetable filename
+- has quality-of-life improvements
+  - ignore warnings
 
 ## Building desktop apps
 
