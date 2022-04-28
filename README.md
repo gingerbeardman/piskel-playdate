@@ -6,11 +6,6 @@ Piskel
 Piskel is an easy-to-use sprite editor. It can be used to create game sprites, animations, pixel-art...
 It is the editor used in **[piskelapp.com](https://www.piskelapp.com)**.
 
-<img
-  src="https://screenletstore.appspot.com/img/95aaa0f0-37a4-11e7-a652-7b8128ce3e3b.png"
-  title="Piskel editor screenshot"
-  width="500">
-
 ## About Piskel
 
 ### Built with
@@ -36,6 +31,7 @@ Piskel supports the following browsers:
 * **Chrome** (latest)
 * **Firefox** (latest)
 * **Edge** (latest)
+* **Safari** (latest)
 * **Internet Explorer** 11
 
 ### Mobile/Tablets
