@@ -198,6 +198,7 @@
   "js/service/palette/PaletteImportService.js",
   "js/service/pensize/PenSizeService.js",
   "js/service/SavedStatusService.js",
+  "js/service/keyboard/InputService.js",
   "js/service/keyboard/KeycodeTranslator.js",
   "js/service/keyboard/KeyUtils.js",
   "js/service/keyboard/Shortcut.js",
