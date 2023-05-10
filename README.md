@@ -5,11 +5,15 @@ Piskel is an easy-to-use sprite editor. It can be used to create game sprites, a
 It is the editor used in **[piskelapp.com](https://www.piskelapp.com)**.
 
 This fork:
-- can be used to build desktop apps of v15.0 on latest OS.
+- can be used to build desktop apps of v15.0 on latest OS
 - has Playdate-specific features
   - get frame size from imagetable filename
 - has quality-of-life improvements
-  - ignore warnings
+  - ignore warnings preference
+- community improvements
+  - Outliner tool (ElectricToy:jmw/outliner-tool)
+  - Dither modifier keys (ElectricToy:jmw/dither-modifier-keys)
+  - Keyboard cursor (Piskel:piskel/keyboard-cursor)
 
 ## Building a macOS arm64 desktop app
 
