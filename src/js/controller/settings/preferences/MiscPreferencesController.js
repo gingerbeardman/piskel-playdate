@@ -40,6 +40,15 @@
     this.addEventListener(layerOpacityInput, 'change', this.onLayerOpacityChange_);
     this.addEventListener(layerOpacityInput, 'input', this.onLayerOpacityChange_);
     this.updateLayerOpacityText_(layerOpacityInput.value);
+
+    // Ignore enabled
+    var isEnabled = pskl.UserSettings.get(pskl.UserSettings.IGNORE_ENABLED);
+    var ignoreWarningsCheckbox = document.querySelector('.ignore-warnings-checkbox');
+    if (isEnabled) {
+      ignoreWarningsCheckbox.setAttribute('checked', 'true');
+    }
+    this.addEventListener(ignoreWarningsCheckbox, 'change', this.onIgnoreWarningsChange_);
+
   };
 
   ns.MiscPreferencesController.prototype.onBackgroundClick_ = function (evt) {
@@ -85,4 +94,9 @@
     var layerOpacityText = document.querySelector('.layer-opacity-text');
     layerOpacityText.innerHTML = (opacity * 1).toFixed(2);
   };
+
+  ns.MiscPreferencesController.prototype.onIgnoreWarningsChange_ = function (evt) {
+    pskl.UserSettings.set(pskl.UserSettings.IGNORE_ENABLED, evt.currentTarget.checked);
+  };
+
 })();

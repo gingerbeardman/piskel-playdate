@@ -148,9 +148,11 @@
     var piskel = this.mergeData.mergePiskel;
     var mode = this.mergeData.importMode;
 
+    var ignoreEnabled = pskl.UserSettings.get(pskl.UserSettings.IGNORE_ENABLED);
+
     if (mode === ns.steps.SelectMode.MODES.REPLACE) {
       // Replace the current piskel and close the dialog.
-      if (window.confirm(Constants.CONFIRM_OVERWRITE)) {
+      if (ignoreEnabled || window.confirm(Constants.CONFIRM_OVERWRITE)) {
         this.piskelController.setPiskel(piskel);
         this.closeDialog();
       }

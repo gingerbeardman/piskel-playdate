@@ -6,6 +6,7 @@
     GRID_ENABLED : 'GRID_ENABLED',
     GRID_WIDTH : 'GRID_WIDTH',
     GRID_SPACING : 'GRID_SPACING',
+    IGNORE_ENABLED : 'IGNORE_ENABLED',
     MAX_FPS : 'MAX_FPS',
     DEFAULT_SIZE : 'DEFAULT_SIZE',
     CANVAS_BACKGROUND : 'CANVAS_BACKGROUND',
@@ -29,6 +30,7 @@
       'GRID_ENABLED' : false,
       'GRID_WIDTH' : 1,
       'GRID_SPACING' : 1,
+      'IGNORE_ENABLED' : true,
       'MAX_FPS' : 24,
       'DEFAULT_SIZE' : {
         width : Constants.DEFAULT.WIDTH,
