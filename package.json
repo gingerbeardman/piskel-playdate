@@ -70,8 +70,10 @@
     "title": "Piskel",
     "icon": "dest/prod/logo.png",
     "toolbar": false,
-    "width": 1000,
-    "height": 700
+    "width": 1200,
+    "height": 960,
+    "top": 0,
+    "left": 0
   },
   "dependencies": {
     "minimist": "^1.2.5"
