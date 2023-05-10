@@ -187,6 +187,15 @@
     this.resizeWidth.value = w;
     this.resizeHeight.value = h;
 
+    // set imagetable/spritesheet if filename matches
+    if (fileName.includes('-table-')) {
+      let imagetable = fileName.match(/^.+-(\d+)-(\d+)\.(.+$)/i);
+      w = imagetable[1];
+      h = imagetable[2];
+      // Select spritesheet import type since the user changed a value here
+      this.sheetImportType.checked = true;
+    }
+
     this.frameSizeX.value = w;
     this.frameSizeY.value = h;
     this.frameOffsetX.value = 0;
@@ -194,6 +203,11 @@
 
     this.importPreview.innerHTML = '';
     this.importPreview.appendChild(this.createImagePreview_());
+
+    // redraw the grid
+    if (fileName.includes('-table-')) {
+      this.onImportTypeChange_();
+    }
   };
 
   ns.ImageImport.prototype.createImagePreview_ = function () {
