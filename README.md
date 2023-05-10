@@ -11,13 +11,15 @@ This fork:
 - has quality-of-life improvements
   - ignore warnings
 
+## Building a macOS arm64 desktop app
+
+1. download the latest unofficial osx-arm64 nwjs.app from [corwin-of-amber/nw.js/releases](https://github.com/corwin-of-amber/nw.js/releases)
+2. put that in your build folder at `piskel/cache/0.63.1-normal/osx64/nwjs.app`
+3. `grunt desktop-mac`
+
 ## Building desktop apps
 
-1. clone this repo
-2. switch to branch https://github.com/gingerbeardman/piskel/tree/dev-1047
-3. `npm install grunt-cli -g`
-4. `npm install`
-5. `grunt desktop`
+See main piskel repo.
 
 ----
 
