@@ -10,7 +10,7 @@ This fork:
   - get frame size from imagetable filename
 - has quality-of-life improvements
   - ignore warnings preference
-- community improvements
+- adds useful community improvements
   - Outliner tool (ElectricToy:jmw/outliner-tool)
   - Dither modifier keys (ElectricToy:jmw/dither-modifier-keys)
   - Keyboard cursor (Piskel:piskel/keyboard-cursor)
