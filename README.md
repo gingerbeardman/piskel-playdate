@@ -4,16 +4,24 @@ Piskel for Playdate
 Piskel is an easy-to-use sprite editor. It can be used to create game sprites, animations, pixel-art...
 It is the editor used in **[piskelapp.com](https://www.piskelapp.com)**.
 
-This fork:
-- can be used to build desktop apps of v15.0 on latest OS
+## This fork
+
+Read about the details on my blog: https://blog.gingerbeardman.com/2023/05/10/piskel-for-playdate/ 
+
+- can be used to build desktop apps of v15.2 on latest OS
+  - should build just fine for Windows/Linux/Mac (Intel)
+  - can also be used to build for Apple silicon
 - has Playdate-specific features
   - get frame size from imagetable filename
 - has quality-of-life improvements
   - ignore warnings preference
+  - turns off animated preview by default
+  - different window size and positioning
+  - stops nagging if run in WebKit
 - adds useful community improvements
-  - Outliner tool (ElectricToy:jmw/outliner-tool)
-  - Dither modifier keys (ElectricToy:jmw/dither-modifier-keys)
-  - Keyboard cursor (Piskel:piskel/keyboard-cursor)
+  - Outliner tool
+  - Dither modifier keys
+  - Keyboard cursor
 
 ## Building a macOS arm64 desktop app
 
