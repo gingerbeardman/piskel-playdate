@@ -87,11 +87,11 @@
   };
 
   ns.PngExportController.prototype.getColumns_ = function () {
-    return parseInt(this.columnsInput.value || 1, 10);
+    return parseInt(this.columnsInput?.value || 1, 10);
   };
 
   ns.PngExportController.prototype.getRows_ = function () {
-    return parseInt(this.rowsInput.value || 1, 10);
+    return parseInt(this.rowsInput?.value || 1, 10);
   };
 
   ns.PngExportController.prototype.getBestFit_ = function () {

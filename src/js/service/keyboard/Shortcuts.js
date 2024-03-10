@@ -78,7 +78,8 @@
     STORAGE : {
       SAVE : createShortcut('save', 'Save the current sprite', 'ctrl+S'),
       OPEN : createShortcut('open', '(desktop) Open a .piskel file', 'ctrl+O'),
-      SAVE_AS : createShortcut('save-as', '(desktop) Save as new', 'ctrl+shift+S')
+      SAVE_AS : createShortcut('save-as', '(desktop) Save as new', 'ctrl+shift+S'),
+      EXPORT_AS_PNG: createShortcut('export-as-png', 'Export as .png file', 'ctrl+shift+E'),
     },
 
     COLOR : {

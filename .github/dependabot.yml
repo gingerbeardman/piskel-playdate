@@ -1,0 +1,21 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "."
+    schedule:
+      interval: "weekly"
+    target-branch: "dev-1047"
+    versioning-strategy: increase
+    groups:
+      npm:
+        patterns:
+          - "*"
+  - package-ecosystem: "github-actions"
+    directory: ".github/workflows"
+    schedule:
+      interval: "weekly"
+    target-branch: "dev-1047"
+    groups:
+      gha:
+        patterns:
+          - "*"
