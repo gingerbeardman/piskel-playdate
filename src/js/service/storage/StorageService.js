@@ -14,6 +14,7 @@
     pskl.app.shortcutService.registerShortcut(shortcuts.STORAGE.OPEN, this.onOpenKey_.bind(this));
     pskl.app.shortcutService.registerShortcut(shortcuts.STORAGE.SAVE, this.onSaveKey_.bind(this));
     pskl.app.shortcutService.registerShortcut(shortcuts.STORAGE.SAVE_AS, this.onSaveAsKey_.bind(this));
+    pskl.app.shortcutService.registerShortcut(shortcuts.STORAGE.EXPORT_AS_PNG, this.onExportAsPng_.bind(this));
 
     $.subscribe(Events.BEFORE_SAVING_PISKEL, this.setSavingFlag_.bind(this, true));
     $.subscribe(Events.AFTER_SAVING_PISKEL, this.setSavingFlag_.bind(this, false));
@@ -44,7 +45,7 @@
     return this.delegateSave_(pskl.app.desktopStorageService, piskel, saveAsNew);
   };
 
-  ns.StorageService.prototype.delegateSave_ = function(delegatedService, piskel, saveAsNew) {
+  ns.StorageService.prototype.delegateSave_ = function (delegatedService, piskel, saveAsNew) {
     if (this.savingFlag_) {
       return Q.reject('Already saving');
     }
@@ -84,10 +85,22 @@
     // no other implementation for now
   };
 
+  /**
+   * Export the current piskel as a PNG image
+   * 
+   * @todo This is most likely anti pattern for this codebase and should be refactored.
+   */
+  ns.StorageService.prototype.onExportAsPng_ = function () {
+    var exportController = new pskl.controller.settings.exportimage.ExportController(this.piskelController);
+    var pngExportController = new pskl.controller.settings.exportimage.PngExportController(this.piskelController, exportController);
+    var canvas = pngExportController.createPngSpritesheet_();
+    pngExportController.downloadCanvas_(canvas);
+  };
+
   ns.StorageService.prototype.onSaveSuccess_ = function () {
     $.publish(Events.SHOW_NOTIFICATION, [{
-      content : 'Successfully saved !',
-      hideDelay : 3000
+      content: 'Successfully saved !',
+      hideDelay: 3000
     }]);
     $.publish(Events.PISKEL_SAVED);
     this.afterSaving_();
@@ -99,8 +112,8 @@
       errorText += ' : ' + errorMessage;
     }
     $.publish(Events.SHOW_NOTIFICATION, [{
-      content : errorText,
-      hideDelay : 10000
+      content: errorText,
+      hideDelay: 10000
     }]);
     this.afterSaving_();
     return Q.reject(errorMessage);

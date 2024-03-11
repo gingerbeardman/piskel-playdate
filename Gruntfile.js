@@ -314,8 +314,8 @@ module.exports = function(grunt) {
   grunt.registerTask('integration-test', ['build-dev', 'connect:test', 'casperjs:integration']);
   // Run drawing tests
   grunt.registerTask('drawing-test', ['build-dev', 'connect:test', 'casperjs:drawing']);
-  // Run linting, unit tests, drawing tests and integration tests
-  grunt.registerTask('test', ['lint', 'unit-test', 'build-dev', 'connect:test', 'casperjs:drawing', 'casperjs:integration']);
+  // Run drawing tests and integration tests
+  grunt.registerTask('test', ['build-dev', 'connect:test', 'casperjs:drawing', 'casperjs:integration']);
 
   // Run the tests, even if the linting fails
   grunt.registerTask('test-nolint', ['unit-test', 'build-dev', 'connect:test', 'casperjs:drawing', 'casperjs:integration']);

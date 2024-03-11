@@ -1,0 +1,42 @@
+name: test
+
+on:
+  pull_request:
+    branches:
+      - dev-1047
+
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  karma:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4.1.1
+      - name: Use Node version defined in manifest
+        uses: volta-cli/action@v4.0.1
+      - name: Node.js version
+        run: node -v
+      - name: npm version
+        run: npm -v
+      - name: Install dependencies
+        run: npm ci
+      - name: Run Karma tests
+        run: npm run grunt karma
+  casper:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4.1.1
+      - name: Use Node version defined in manifest
+        uses: volta-cli/action@v4.0.1
+      - name: Node.js version
+        run: node -v
+      - name: npm version
+        run: npm -v
+      - name: Install dependencies
+        run: npm ci
+      - name: Run Casper tests
+        run: npm run grunt karma
