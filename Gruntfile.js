@@ -10,8 +10,8 @@ module.exports = function(grunt) {
   };
 
   // create a version based on the build timestamp
-  var dateFormat = require('dateformat');
-  var version = '-' + dateFormat(new Date(), "yyyy-mm-dd-hh-MM");
+  var { format } = require('date-fns');
+  var version = `-${format(new Date(), "yyyy-MM-dd-HH-mm")}`;
   var releaseVersion = require('./package.json').version;
 
   /**
@@ -270,35 +270,42 @@ module.exports = function(grunt) {
      */
 
     nwjs: {
-      windows : {
+      win_x64 : {
         options: {
-          downloadUrl: 'https://dl.nwjs.io/',
-          version : "0.63.1",
-          build_dir: './dest/desktop/', // destination folder of releases.
-          win: true,
-          linux32: true,
-          linux64: true,
+          mode: "build",
+          version : "0.85.0",
           flavor: "normal",
+          platform: "win",
+          arch: "x64",
+          outDir: './dest/desktop/',
         },
         src: ['./dest/prod/**/*', "./package.json", "!./dest/desktop/"]
       },
-      macos : {
+      osx_x64 : {
         options: {
-          downloadUrl: 'https://dl.nwjs.io/',
-          osx64: true,
-          version : "0.63.1",
-          build_dir: './dest/desktop/',
+          mode: "build",
+          version : "0.85.0",
           flavor: "normal",
+          platform: "osx",
+          arch: "x64",
+          outDir: './dest/desktop/',
+          app: {
+            icon: './piskel.icns'
+          }
         },
         src: ['./dest/prod/**/*', "./package.json", "!./dest/desktop/"]
       },
-      macos_old : {
+      osx_arm : {
         options: {
-          downloadUrl: 'https://dl.nwjs.io/',
-          osx64: true,
-          version : "0.12.3",
-          build_dir: './dest/desktop/old',
+          mode: "build",
+          version : "0.85.0",
           flavor: "normal",
+          platform: "osx",
+          arch: "arm64",
+          outDir: './dest/desktop/',
+          app: {
+            icon: './piskel.icns'
+          }
         },
         src: ['./dest/prod/**/*', "./package.json", "!./dest/desktop/"]
       }
@@ -313,9 +320,9 @@ module.exports = function(grunt) {
   // Run integration tests
   grunt.registerTask('integration-test', ['build-dev', 'connect:test', 'casperjs:integration']);
   // Run drawing tests
-  grunt.registerTask('drawing-test', ['build-dev', 'connect:test', 'casperjs:drawing']);
+  grunt.registerTask('casper-drawing-test', ['build-dev', 'connect:test', 'casperjs:drawing']);
   // Run drawing tests and integration tests
-  grunt.registerTask('test', ['build-dev', 'connect:test', 'casperjs:drawing', 'casperjs:integration']);
+  grunt.registerTask('casper-integration-test', ['build-dev', 'connect:test', 'casperjs:integration']);
 
   // Run the tests, even if the linting fails
   grunt.registerTask('test-nolint', ['unit-test', 'build-dev', 'connect:test', 'casperjs:drawing', 'casperjs:integration']);
@@ -329,9 +336,9 @@ module.exports = function(grunt) {
   grunt.registerTask('build',  ['clean:prod', 'sprite', 'merge-statics', 'build-index.html', 'replace:mainPartial', 'replace:css', 'copy:prod']);
   grunt.registerTask('build-dev',  ['clean:dev', 'sprite', 'build-index.html', 'copy:dev']);
   grunt.registerTask('desktop', ['clean:desktop', 'default', 'nwjs:macos', 'nwjs:windows']);
-  grunt.registerTask('desktop-win', ['clean:desktop', 'default', 'nwjs:windows']);
-  grunt.registerTask('desktop-mac', ['clean:desktop', 'default', 'nwjs:macos']);
-  grunt.registerTask('desktop-mac-old', ['clean:desktop', 'default', 'replace:desktop', 'nwjs:macos_old']);
+  grunt.registerTask('desktop-win-x64', ['clean:desktop', 'default', 'nwjs:win_x64']);
+  grunt.registerTask('desktop-osx-x64', ['clean:desktop', 'default', 'nwjs:osx_x64']);
+  grunt.registerTask('desktop-osx-arm', ['clean:desktop', 'default', 'nwjs:osx_arm']);
 
   // SERVER TASKS
   // Start webserver and watch for changes
@@ -346,5 +353,5 @@ module.exports = function(grunt) {
   grunt.registerTask('test-local', ['test']);
 
   // Default task
-  grunt.registerTask('default', ['lint', 'build']);
+  grunt.registerTask('default', ['build']);
 };
