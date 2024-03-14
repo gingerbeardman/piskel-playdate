@@ -279,7 +279,7 @@ module.exports = function(grunt) {
           arch: "x64",
           outDir: './dest/desktop/',
         },
-        src: './dest/prod/**/* ./package.json !./dest/desktop/'
+        src: ['./dest/prod/**/*', "./package.json", "!./dest/desktop/"]
       },
       osx_x64 : {
         options: {
@@ -289,8 +289,11 @@ module.exports = function(grunt) {
           platform: "osx",
           arch: "x64",
           outDir: './dest/desktop/',
+          app: {
+            icon: './piskel.icns'
+          }
         },
-        src: './dest/prod/**/* ./package.json !./dest/desktop'
+        src: ['./dest/prod/**/*', "./package.json", "!./dest/desktop/"]
       },
       osx_arm : {
         options: {
