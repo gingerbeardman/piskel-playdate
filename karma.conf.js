@@ -1,8 +1,8 @@
 // Karma configuration
 // Generated on Tue Jul 22 2014 23:49:26 GMT+0200 (Romance Daylight Time)
 
-const puppeteer = require('puppeteer');
-process.env.CHROME_BIN = puppeteer.executablePath();
+const { findpath } = require('nw');
+process.env.CHROMIUM_BIN = findpath();
 
 module.exports = function(config) {
 
@@ -11,9 +11,6 @@ module.exports = function(config) {
   var piskelScripts = require('./src/piskel-script-list.js').scripts.map(mapToSrcFolder);
   piskelScripts.push('test/js/testutils/**/*.js');
   piskelScripts.push('test/js/**/*.js');
-
-  // Polyfill for Object.assign (missing in PhantomJS)
-  piskelScripts.push('./node_modules/phantomjs-polyfill-object-assign/object-assign-polyfill.js');
 
   config.set({
 
@@ -67,7 +64,16 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['ChromeHeadless'],
+    browsers: ['Chromium_without_security'],
+    customLaunchers: {
+      Chromium_without_security: {
+        base: 'ChromiumHeadless',
+        flags: [
+          '--nwapp=.',
+          '--no-sandbox',
+        ]
+      }
+    },
 
     plugins: [
       'karma-chrome-launcher',
