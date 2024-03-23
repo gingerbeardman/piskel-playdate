@@ -90,6 +90,6 @@
   };
 
   ns.ExportController.prototype.getExportZoom = function () {
-    return parseInt(this.widthInput?.value, 10) / this.piskelController.getWidth();
+    return parseInt(this.widthInput.value, 10) / this.piskelController.getWidth();
   };
 })();

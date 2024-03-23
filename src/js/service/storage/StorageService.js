@@ -14,7 +14,7 @@
     pskl.app.shortcutService.registerShortcut(shortcuts.STORAGE.OPEN, this.onOpenKey_.bind(this));
     pskl.app.shortcutService.registerShortcut(shortcuts.STORAGE.SAVE, this.onSaveKey_.bind(this));
     pskl.app.shortcutService.registerShortcut(shortcuts.STORAGE.SAVE_AS, this.onSaveAsKey_.bind(this));
-    pskl.app.shortcutService.registerShortcut(shortcuts.STORAGE.EXPORT_AS_PNG, this.onExportAsPng_.bind(this));
+    pskl.app.shortcutService.registerShortcut(shortcuts.STORAGE.EXPORT_SINGLE_FRAME_AS_PNG, this.onExportSingleFrameAsPng.bind(this));
 
     $.subscribe(Events.BEFORE_SAVING_PISKEL, this.setSavingFlag_.bind(this, true));
     $.subscribe(Events.AFTER_SAVING_PISKEL, this.setSavingFlag_.bind(this, false));
@@ -86,15 +86,18 @@
   };
 
   /**
-   * Export the current piskel as a PNG image
+   * Export single frame as PNG image.
    * 
-   * @todo This is most likely anti pattern for this codebase and should be refactored.
+   * Reference implementation can be found [here](https://github.com/gingerbeardman/piskel-playdate/blob/4e497469bb5f1ed314bb313cf4ddb4c863dbbbac/src/js/controller/settings/exportimage/PngExportController.js#L233).
    */
-  ns.StorageService.prototype.onExportAsPng_ = function () {
+  ns.StorageService.prototype.onExportSingleFrameAsPng = function () {
     var exportController = new pskl.controller.settings.exportimage.ExportController(this.piskelController);
     var pngExportController = new pskl.controller.settings.exportimage.PngExportController(this.piskelController, exportController);
-    var canvas = pngExportController.createPngSpritesheet_();
-    pngExportController.downloadCanvas_(canvas);
+    var frameIndex = this.piskelController.getCurrentFrameIndex();
+    var name = this.piskelController.getPiskel().getDescriptor().name;
+    var canvas = this.piskelController.renderFrameAt(frameIndex, true);
+    var fileName = name + '-' + (frameIndex + 1);
+    pngExportController.downloadCanvas_(canvas, fileName);
   };
 
   ns.StorageService.prototype.onSaveSuccess_ = function () {
