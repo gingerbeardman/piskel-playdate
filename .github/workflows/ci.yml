@@ -53,5 +53,7 @@ jobs:
         run: npm -v
       - name: Install dependencies
         run: npm ci
+      - name: Check for linting errors
+        run: npm run grunt lint
       - name: Run Casper Integration tests
         run: npm run grunt casper-integration-test

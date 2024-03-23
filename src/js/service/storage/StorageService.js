@@ -14,7 +14,8 @@
     pskl.app.shortcutService.registerShortcut(shortcuts.STORAGE.OPEN, this.onOpenKey_.bind(this));
     pskl.app.shortcutService.registerShortcut(shortcuts.STORAGE.SAVE, this.onSaveKey_.bind(this));
     pskl.app.shortcutService.registerShortcut(shortcuts.STORAGE.SAVE_AS, this.onSaveAsKey_.bind(this));
-    pskl.app.shortcutService.registerShortcut(shortcuts.STORAGE.EXPORT_SINGLE_FRAME_AS_PNG, this.onExportSingleFrameAsPng.bind(this));
+    pskl.app.shortcutService.registerShortcut(shortcuts.STORAGE.EXPORT_SINGLE_FRAME_AS_PNG,
+      this.onExportSingleFrameAsPng.bind(this));
 
     $.subscribe(Events.BEFORE_SAVING_PISKEL, this.setSavingFlag_.bind(this, true));
     $.subscribe(Events.AFTER_SAVING_PISKEL, this.setSavingFlag_.bind(this, false));
@@ -87,12 +88,13 @@
 
   /**
    * Export single frame as PNG image.
-   * 
-   * Reference implementation can be found [here](https://github.com/gingerbeardman/piskel-playdate/blob/4e497469bb5f1ed314bb313cf4ddb4c863dbbbac/src/js/controller/settings/exportimage/PngExportController.js#L233).
+   * @function
+   * @return {void}
    */
   ns.StorageService.prototype.onExportSingleFrameAsPng = function () {
     var exportController = new pskl.controller.settings.exportimage.ExportController(this.piskelController);
-    var pngExportController = new pskl.controller.settings.exportimage.PngExportController(this.piskelController, exportController);
+    var pngExportController = new pskl.controller.settings.exportimage.PngExportController(
+      this.piskelController,exportController);
     var frameIndex = this.piskelController.getCurrentFrameIndex();
     var name = this.piskelController.getPiskel().getDescriptor().name;
     var canvas = this.piskelController.renderFrameAt(frameIndex, true);
