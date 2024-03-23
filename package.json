@@ -36,7 +36,7 @@
   "devDependencies": {
     "grunt-nw-builder": "4.6.1",
     "base-volta-off-of-nwjs": "1.0.3",
-    "date-fns": "3.4.0",
+    "date-fns": "3.6.0",
     "fs-extra": "11.2.0",
     "grunt": "1.6.1",
     "grunt-casperjs": "2.2.1",
