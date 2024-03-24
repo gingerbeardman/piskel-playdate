@@ -31,7 +31,8 @@
       LASSO_SELECT : createShortcut('tool-lasso-select', 'Lasso selection', 'H'),
       LIGHTEN : createShortcut('tool-lighten', 'Lighten tool', 'U'),
       DITHERING : createShortcut('tool-dithering', 'Dithering tool', 'T'),
-      COLORPICKER : createShortcut('tool-colorpicker', 'Color picker', 'O')
+      COLORPICKER : createShortcut('tool-colorpicker', 'Color picker', 'O'),
+      OUTLINER : createShortcut('tool-outliner', 'Outliner', 'Q')
     },
 
     SELECTION : {
@@ -67,12 +68,19 @@
       OFFSET_RIGHT : createShortcut('move-right', 'Move viewport right', 'shift+right'),
       OFFSET_DOWN : createShortcut('move-down', 'Move viewport down', 'shift+down'),
       OFFSET_LEFT : createShortcut('move-left', 'Move viewport left', 'shift+left'),
+      CURSOR_UP : createShortcut('cursor-up', 'Move cursor up', 'alt+up'),
+      CURSOR_RIGHT : createShortcut('cursor-right', 'Move cursor right', 'alt+right'),
+      CURSOR_DOWN : createShortcut('cursor-down', 'Move cursor down', 'alt+down'),
+      CURSOR_LEFT : createShortcut('cursor-left', 'Move cursor left', 'alt+left'),
+      CURSOR_CLICK : createShortcut('cursor-click', 'Click cursor', 'SPACE'),
     },
 
     STORAGE : {
       SAVE : createShortcut('save', 'Save the current sprite', 'ctrl+S'),
       OPEN : createShortcut('open', '(desktop) Open a .piskel file', 'ctrl+O'),
-      SAVE_AS : createShortcut('save-as', '(desktop) Save as new', 'ctrl+shift+S')
+      SAVE_AS : createShortcut('save-as', '(desktop) Save as new', 'ctrl+shift+S'),
+      EXPORT_SINGLE_FRAME_AS_PNG: createShortcut('export-single-frame-as-png',
+        'Export Single Frame as .png file', 'ctrl+shift+E'),
     },
 
     COLOR : {

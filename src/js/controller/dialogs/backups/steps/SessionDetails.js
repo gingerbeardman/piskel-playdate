@@ -91,8 +91,9 @@
   };
 
   ns.SessionDetails.prototype.onContainerClick_ = function (evt) {
+    var ignoreEnabled = pskl.UserSettings.get(pskl.UserSettings.IGNORE_ENABLED);
     var action = evt.target.dataset.action;
-    if (action == 'load' && window.confirm(Constants.CONFIRM_OVERWRITE)) {
+    if (action == 'load' && (ignoreEnabled || window.confirm(Constants.CONFIRM_OVERWRITE))) {
       var snapshotId = evt.target.dataset.snapshotId * 1;
       pskl.app.backupService.loadSnapshotById(snapshotId).then(function () {
         $.publish(Events.DIALOG_HIDE);

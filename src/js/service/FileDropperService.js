@@ -52,7 +52,9 @@
   };
 
   ns.FileDropperService.prototype.onPiskelFileLoaded_ = function (piskel) {
-    if (window.confirm(Constants.CONFIRM_OVERWRITE)) {
+    var ignoreEnabled = pskl.UserSettings.get(pskl.UserSettings.IGNORE_ENABLED);
+
+    if (ignoreEnabled || window.confirm(Constants.CONFIRM_OVERWRITE)) {
       pskl.app.piskelController.setPiskel(piskel);
     }
   };

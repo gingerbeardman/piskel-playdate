@@ -3,7 +3,7 @@ var Constants = {
   DEFAULT : {
     HEIGHT : 32,
     WIDTH : 32,
-    FPS : 12,
+    FPS : 0,
     LAYER_OPACITY : 0.2
   },
 

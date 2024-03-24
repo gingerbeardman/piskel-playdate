@@ -30,10 +30,11 @@
   };
 
   ns.BeforeUnloadService.prototype.onBeforeUnload = function (evt) {
+    var ignoreEnabled = pskl.UserSettings.get(pskl.UserSettings.IGNORE_ENABLED);
     // Attempt one last backup. Some of it may fail due to the asynchronous
     // nature of IndexedDB.
     pskl.app.backupService.backup();
-    if (pskl.app.savedStatusService.isDirty()) {
+    if (pskl.app.savedStatusService.isDirty() && !ignoreEnabled) {
       var confirmationMessage = 'Your current sprite has unsaved changes. Are you sure you want to quit?';
 
       evt = evt || window.event;

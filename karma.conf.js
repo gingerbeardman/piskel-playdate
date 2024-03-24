@@ -1,6 +1,9 @@
 // Karma configuration
 // Generated on Tue Jul 22 2014 23:49:26 GMT+0200 (Romance Daylight Time)
 
+const { findpath } = require('nw');
+process.env.CHROMIUM_BIN = findpath();
+
 module.exports = function(config) {
 
   var mapToSrcFolder = function (path) {return ['src', path].join('/');};
@@ -8,9 +11,6 @@ module.exports = function(config) {
   var piskelScripts = require('./src/piskel-script-list.js').scripts.map(mapToSrcFolder);
   piskelScripts.push('test/js/testutils/**/*.js');
   piskelScripts.push('test/js/**/*.js');
-
-  // Polyfill for Object.assign (missing in PhantomJS)
-  piskelScripts.push('./node_modules/phantomjs-polyfill-object-assign/object-assign-polyfill.js');
 
   config.set({
 
@@ -64,8 +64,21 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['PhantomJS'],
+    browsers: ['Chromium_without_security'],
+    customLaunchers: {
+      Chromium_without_security: {
+        base: 'ChromiumHeadless',
+        flags: [
+          '--nwapp=.',
+          '--no-sandbox',
+        ]
+      }
+    },
 
+    plugins: [
+      'karma-chrome-launcher',
+      'karma-jasmine',
+    ],
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
