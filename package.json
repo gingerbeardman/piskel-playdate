@@ -58,7 +58,7 @@
     "karma-chrome-launcher": "3.2.0",
     "karma-jasmine": "4.0.2",
     "load-grunt-tasks": "5.1.0",
-    "nw": "0.86.0-1",
+    "nw": "0.86.0-2",
     "phantomjs-polyfill-object-assign": "0.0.2",
     "phantomjs-prebuilt": "2.1.16",
     "promise-polyfill": "8.3.0"
