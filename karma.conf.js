@@ -1,10 +1,21 @@
 // Karma configuration
 // Generated on Tue Jul 22 2014 23:49:26 GMT+0200 (Romance Daylight Time)
 
-const { findpath } = require('nw');
-process.env.CHROMIUM_BIN = findpath();
+const process = require('process');
 
-module.exports = function(config) {
+let findpath = undefined;
+
+module.exports = async function(config) {
+
+  await import('nw')
+  .then((module) => {
+    findpath = module.findpath;
+    process.env.CHROMIUM_BIN = findpath();
+  })
+  .catch((error) => {
+    console.error(error);
+    process.exit(1);
+  });
 
   var mapToSrcFolder = function (path) {return ['src', path].join('/');};
 

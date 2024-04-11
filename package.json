@@ -1,6 +1,6 @@
 {
   "name": "piskel-playdate",
-  "version": "0.16.0",
+  "version": "0.16.1",
   "private": true,
   "description": "Pixel art editor",
   "author": "Matt Sephton",
@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "grunt-nw-builder": "4.6.1",
-    "base-volta-off-of-nwjs": "1.0.3",
+    "base-volta-off-of-nwjs": "1.0.5",
     "date-fns": "3.6.0",
     "fs-extra": "11.2.0",
     "grunt": "1.6.1",
@@ -47,7 +47,7 @@
     "grunt-contrib-copy": "1.0.0",
     "grunt-contrib-uglify": "5.2.2",
     "grunt-contrib-watch": "1.1.0",
-    "grunt-eslint": "24.3.0",
+    "grunt-eslint": "25.0.0",
     "grunt-include-replace": "5.0.0",
     "grunt-karma": "4.0.2",
     "grunt-leading-indent": "0.2.0",
@@ -58,7 +58,7 @@
     "karma-chrome-launcher": "3.2.0",
     "karma-jasmine": "4.0.2",
     "load-grunt-tasks": "5.1.0",
-    "nw": "0.85.0",
+    "nw": "0.86.0-1",
     "phantomjs-polyfill-object-assign": "0.0.2",
     "phantomjs-prebuilt": "2.1.16",
     "promise-polyfill": "8.3.0"
