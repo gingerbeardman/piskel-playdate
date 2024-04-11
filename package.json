@@ -77,5 +77,8 @@
   },
   "volta": {
     "node": "21.1.0"
-  }
+  },
+  "ManifestComments": [
+    "Pin karma-jasmine to v4.0.2 since some tests fail on v5.0.0"
+  ]
 }
