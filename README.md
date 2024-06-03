@@ -14,7 +14,7 @@ Read about the details on my blog: https://blog.gingerbeardman.com/2023/05/10/pi
 
 - can be used to build desktop apps on latest operating systems
   - updated to future-proof dependencies and build process
-  - builds Windows and Mac (Universal)
+  - builds for Windows, Linux, macOS
 - has Playdate-specific features
   - get frame size from imagetable filename
 - has quality-of-life improvements

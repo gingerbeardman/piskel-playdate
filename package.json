@@ -32,6 +32,7 @@
     "postversion": "git push && git push --tags && npm publish",
     "release": "grunt && node ./bin/copy-to-piskel-website",
     "build:win": "grunt desktop-win-x64",
+    "build:linux": "grunt desktop-linux-x64",
     "build:mac": "grunt desktop-osx-x64",
     "build:mac-arm": "grunt desktop-osx-arm",
     "format": "grunt eslint --fix"
