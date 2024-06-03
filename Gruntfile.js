@@ -276,7 +276,6 @@ module.exports = function(grunt) {
       win_x64 : {
         options: {
           mode: "build",
-          version : "0.85.0",
           flavor: "normal",
           platform: "win",
           arch: "x64",
@@ -287,7 +286,6 @@ module.exports = function(grunt) {
       osx_x64 : {
         options: {
           mode: "build",
-          version : "0.85.0",
           flavor: "normal",
           platform: "osx",
           arch: "x64",
@@ -301,7 +299,6 @@ module.exports = function(grunt) {
       osx_arm : {
         options: {
           mode: "build",
-          version : "0.85.0",
           flavor: "normal",
           platform: "osx",
           arch: "arm64",
