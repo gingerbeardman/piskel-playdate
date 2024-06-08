@@ -1,15 +1,5 @@
-const rmdir = require('rmdir');
-const path = require('path');
-const fs = require('fs');
-let fse = undefined;
-import('fs-extra')
-  .then((fs) => {
-    fse = fs.default;
-  })
-  .catch((err) => {
-    console.error('Failed to import fs-extra...');
-    console.error(err);
-  });
+const fs = require('node:fs');
+const path = require('node:path');
 
 const PISKEL_PATH = path.resolve(__dirname, '..');
 const PISKELAPP_PATH = path.resolve(__dirname, '../../piskel-website');
@@ -44,7 +34,7 @@ function onDeletePreviousPartial(err) {
   }
 
   console.log('Previous main partial deleted...');
-  fse.copy(
+  fs.cp(
     path.resolve(PISKELAPP_PATH, "static/editor/piskelapp-partials/main-partial.html"),
     path.resolve(PISKELAPP_PATH, "templates/editor/main-partial.html"),
     onCopyNewPartial
@@ -85,7 +75,7 @@ function onVersionFileCreated(err) {
   console.log('Finished!');
 }
 
-fse.copy(
+fs.cp(
   path.resolve(PISKEL_PATH, "dest/prod"),
   path.resolve(PISKELAPP_PATH, "static/editor"),
   onCopy
